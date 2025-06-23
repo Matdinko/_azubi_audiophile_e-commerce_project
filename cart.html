@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Shopping Cart | Audiophile</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-50 min-h-screen flex flex-col">
+  <!-- NAVBAR -->
+  <nav class="bg-black text-white px-4 md:px-12 py-4 flex items-center justify-between">
+    <div class="font-bold text-xl tracking-widest">audiophile</div>
+    <ul class="flex space-x-8 uppercase text-sm font-semibold">
+      <li><a href="index.html" class="hover:text-orange-500">Home</a></li>
+      <li><a href="headphones.html" class="hover:text-orange-500">Headphones</a></li>
+      <li><a href="speakers.html" class="hover:text-orange-500">Speakers</a></li>
+      <li><a href="earphones.html" class="hover:text-orange-500">Earphones</a></li>
+    </ul>
+    <button id="cart-btn" class="focus:outline-none relative">
+      <img src="challenge-files/audio_file/assets/shared/desktop/icon-cart.svg" alt="Cart" class="w-7 h-7"/>
+      <span class="cart-badge absolute top-0 right-0 bg-orange-500 text-white text-xs rounded-full px-2 py-0.5" style="display:none;transform:translate(50%,-50%)"></span>
+    </button>
+  </nav>
+
+  <main class="flex-1 flex flex-col items-center py-8 px-4 md:px-0">
+    <h1 class="text-3xl font-bold mb-8">Your Cart</h1>
+    <div id="cart-container" class="w-full max-w-2xl bg-white rounded-lg shadow p-6 mb-8">
+      <!-- Cart items will be rendered here -->
+    </div>
+    <div class="flex space-x-4">
+      <a href="index.html" class="bg-gray-200 text-black px-6 py-3 rounded hover:bg-gray-300 font-semibold uppercase text-sm">Continue Shopping</a>
+      <button id="checkout-btn" class="bg-black text-white px-6 py-3 rounded hover:bg-gray-800 font-semibold uppercase text-sm">Checkout</button>
+    </div>
+  </main>
+
+  <footer class="bg-black text-white px-4 md:px-12 py-12 w-full md:max-w-[1440px] mx-auto md:min-h-[365px] md:mt-[80px]">
+    <div class="flex flex-col md:flex-row md:justify-around items-center md:items-start">
+      <div>
+        <div class="font-bold text-xl tracking-widest mb-4">audiophile</div>
+        <p class="text-gray-400 max-w-xs mb-4">
+          Audiophile is an all in one stop to fulfill your audio needs. We're a small team of music lovers and sound specialists who are devoted to helping you get the most out of personal audio. Come and visit our demo facility - we're open 7 days a week.
+        </p>
+      </div>
+      <ul class="flex space-x-8 uppercase text-sm font-semibold mt-6 md:mt-0">
+        <li><a href="index.html" class="hover:text-orange-500">Home</a></li>
+        <li><a href="headphones.html" class="hover:text-orange-500">Headphones</a></li>
+        <li><a href="speakers.html" class="hover:text-orange-500">Speakers</a></li>
+        <li><a href="earphones.html" class="hover:text-orange-500">Earphones</a></li>
+      </ul>
+    </div>
+    <div class="flex flex-col md:flex-row md:justify-around items-center mt-8 w-full">
+      <p class="text-gray-500 text-xs">&copy; 2021. All Rights Reserved</p>
+      <div class="flex space-x-4 mt-4 md:mt-0">
+        <a href="#"><img src="challenge-files/audio_file/assets/shared/desktop/icon-facebook.svg" alt="Facebook" class="w-6 h-6 inline-block mx-2"/></a>
+        <a href="#"><img src="challenge-files/audio_file/assets/shared/desktop/icon-twitter.svg" alt="Twitter" class="w-6 h-6 inline-block mx-2"/></a>
+        <a href="#"><img src="challenge-files/audio_file/assets/shared/desktop/icon-instagram.svg" alt="Instagram" class="w-6 h-6 inline-block mx-2"/></a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="cart.js"></script>
+  <script>
+    function renderCart() {
+      const cart = getCart();
+      const container = document.getElementById('cart-container');
+      if (cart.length === 0) {
+        container.innerHTML = '<p class="text-center text-gray-500">Your cart is empty.</p>';
+        document.getElementById('checkout-btn').disabled = true;
+        return;
+      }
+      let html = '<div class="divide-y">';
+      let total = 0;
+      cart.forEach(item => {
+        const subtotal = item.price * item.qty;
+        total += subtotal;
+        html += `
+          <div class="flex items-center py-4">
+            <img src="${item.image}" alt="${item.name}" class="w-20 h-20 object-contain rounded mr-4 bg-gray-100"/>
+            <div class="flex-1">
+              <div class="font-bold">${item.name}</div>
+              <div class="text-gray-500">$${item.price.toLocaleString()}</div>
+              <div class="flex items-center mt-2">
+                <button onclick="updateCartQty('${item.id}', ${item.qty - 1}); renderCart();" class="px-2 py-1 bg-gray-200 rounded-l">-</button>
+                <span class="px-3">${item.qty}</span>
+                <button onclick="updateCartQty('${item.id}', ${item.qty + 1}); renderCart();" class="px-2 py-1 bg-gray-200 rounded-r">+</button>
+                <button onclick="removeFromCart('${item.id}'); renderCart();" class="ml-4 text-red-500 hover:underline">Remove</button>
+              </div>
+            </div>
+            <div class="font-semibold ml-4">$${subtotal.toLocaleString()}</div>
+          </div>
+        `;
+      });
+      html += '</div>';
+      html += `<div class="text-right mt-6 font-bold text-lg">Total: $${total.toLocaleString()}</div>`;
+      container.innerHTML = html;
+      document.getElementById('checkout-btn').disabled = false;
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+      renderCart();
+      document.getElementById('checkout-btn').onclick = function() {
+        window.location.href = 'checkout.html';
+      };
+    });
+  </script>
+</body>
+</html>

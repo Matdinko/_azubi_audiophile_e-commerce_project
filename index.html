@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Audiophile | Home</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link rel="icon" type="image/png" href="images/favicon-32x32.png"/>
+</head>
+<body class="bg-gray-50">
+
+  <!-- NAVBAR -->
+  <nav class="bg-black text-white px-4 md:px-12 py-4 flex items-center justify-around w-full md:max-w-[1440px] mx-auto">
+    <div class="font-bold text-3xl tracking-widest">audiophile</div>
+    <ul class="flex space-x-8 uppercase text-sm font-semibold">
+      <li><a href="index.html" class="hover:text-orange-500">Home</a></li>
+      <li><a href="headphones.html" class="hover:text-orange-500">Headphones</a></li>
+      <li><a href="speakers.html" class="hover:text-orange-500">Speakers</a></li>
+      <li><a href="earphones.html" class="hover:text-orange-500">Earphones</a></li>
+    </ul>
+    <a id="cart-btn" href="cart.html" class="focus:outline-none">
+      <img src="challenge-files/audio_file/assets/shared/desktop/icon-cart.svg" alt="Cart" class="w-7 h-7"/>
+      <span class="cart-badge absolute top-0 right-0 bg-orange-500 text-white text-xs rounded-full px-2 py-0.5" style="display:none;transform:translate(50%,-50%)"></span>
+    </a>
+  </nav>
+
+  <!-- HERO SECTION -->
+  <section class="bg-black text-white flex flex-col md:flex-row items-center justify-center px-4 md:px-12 py-16 gap-x-12 w-full md:max-w-[1440px] mx-auto min-h-screen">
+    <div class="md:w-1/2 mb-8 md:mb-0 flex flex-col justify-center">
+      <span class="uppercase text-gray-400 tracking-widest text-sm">New Product</span>
+      <h1 class="text-5xl md:text-6xl font-bold my-4">XX99 MARK II HEADPHONES</h1>
+      <div class="w-auto flex">
+        <a href="headphones.html" style="background-color: #D87D4A; display: inline-block;" class="text-white px-5 py-3 rounded font-semibold uppercase text-sm hover:opacity-90 transition">See Product</a>
+      </div>
+    </div>
+    <div class="md:w-1/2 flex justify-center items-center">
+      <img src="images/product-xx99-mark-two-headphones/image-product.jpg" alt="Hero" style="height: 80%;" class="rounded-2xl w-full max-w-[600px] h-auto md:w-[600px] md:h-[600px] shadow-2xl border-4 border-white/10 bg-gray-800 m-0"/>
+    </div>
+  </section>
+
+  <!-- CATEGORY CARDS -->
+  <section class="flex flex-col md:flex-row justify-around items-center space-y-8 md:space-y-0 md:space-x-8 my-16 px-4 md:px-0 w-full md:max-w-[1110px] mx-auto md:min-h-[284px] md:mt-[120px]">
+    <div class="bg-white rounded-lg shadow flex flex-col items-center w-25% md:w-1/4 p-6">
+      <img src="images/product-xx99-mark-one-headphones/image-category-page-preview.jpg" alt="Headphones" class="w-24 h-24 object-cover mb-4"/>
+      <h3 class="font-bold text-lg mb-2">HEADPHONES</h3>
+      <a href="headphones.html" class="text-orange-500 font-semibold uppercase text-sm hover:underline">Shop &rarr;</a>
+    </div>
+    <div class="bg-white rounded-lg shadow flex flex-col items-center w-25% md:w-1/4 p-6">
+      <img src="images/product-zx9-speaker/image-category-page-preview.jpg" alt="Speakers" class="w-24 h-24 object-cover mb-4"/>
+      <h3 class="font-bold text-lg mb-2">SPEAKERS</h3>
+      <a href="speakers.html" class="text-orange-500 font-semibold uppercase text-sm hover:underline">Shop &rarr;</a>
+    </div>
+    <div class="bg-white rounded-lg shadow flex flex-col items-center w-25% md:w-1/4 p-6">
+      <img src="images/product-yx1-earphones/image-category-page-preview.jpg" alt="Earphones" class="w-24 h-24 object-cover mb-4"/>
+      <h3 class="font-bold text-lg mb-2">EARPHONES</h3>
+      <a href="earphones.html" class="text-orange-500 font-semibold uppercase text-sm hover:underline">Shop &rarr;</a>
+    </div>
+  </section>
+
+  <!-- FEATURED PRODUCTS -->
+  <section class="bg-black space-y-12 px-2 md:px-16 py-16">
+    <!-- ZX9 SPEAKER -->
+    <div style="background-color: #D87D4A; height: 500px; max-width: 88%;" class="rounded-lg flex flex-col md:flex-row items-center justify-center px-4 md:px-12 py-12 w-full mx-auto">
+      <div class="flex flex-row items-center">
+        <img src="images/home/image-speaker-zx9.png" alt="ZX9 Speaker" style="width: 22rem; height: 44rem;" class="object-contain mr-6"/>
+        <div class="flex flex-col items-center">
+          <h2 style="font-size: 2.5rem; font-weight: 800;" class="mb-4 text-white">ZX9 SPEAKER</h2>
+          <a href="product-zx9-speaker.html" style="font-size: 1.25rem; padding: 1.25rem 2rem; font-weight: bold;" class="bg-black text-white rounded uppercase hover:opacity-90 transition mt-6">See Product</a>
+        </div>
+      </div>
+    </div>
+    <!-- ZX7 SPEAKER -->
+    <div style="max-width: 88%; height: 35%;" class="bg-gray-200 rounded-lg flex flex-col md:flex-row items-center justify-center px-4 md:px-12 py-12 w-full mx-auto">
+      <div class="flex flex-row items-center">
+        <div class="flex flex-col items-center">
+          <h2 style="font-size: 2.2rem; font-weight: 800;" class="mb-4 text-black">ZX7 SPEAKER</h2>
+          <a href="speakers.html" style="font-size: 1.25rem; padding: 1.25rem 2rem; font-weight: bold;" class="bg-black text-white rounded uppercase hover:opacity-90 transition mt-6">See Product</a>
+        </div>
+        <img src="images/product-zx7-speaker/image-product.jpg" alt="ZX7 Speaker" style="width: 22rem; height: 80%;" class="object-contain ml-6"/>
+      </div>
+    </div>
+    <!-- YX1 EARPHONES -->
+    <div style="max-width: 88%; height: 35%;" class="bg-gray-100 rounded-lg flex flex-col md:flex-row items-center justify-center px-4 md:px-12 py-12 w-full mx-auto">
+      <div class="flex flex-row items-center">
+        <img src="images/home/image-earphones-yx1.jpg" alt="YX1 Earphones" style="width: 22rem; height: 80%;" class="object-contain mr-6"/>
+        <div class="flex flex-col items-center">
+          <h2 style="font-size: 2.2rem; font-weight: 800;" class="mb-4 text-black">YX1 EARPHONES</h2>
+          <a href="product-yx1-earphones.html" style="font-size: 1.25rem; padding: 1.25rem 2rem; font-weight: bold;" class="bg-black text-white rounded uppercase hover:opacity-90 transition mt-6">See Product</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BEST AUDIO GEAR SECTION -->
+  <section style="height: 500px;" class="flex flex-col md:flex-row items-center justify-center my-16 px-4 md:px-0 gap-x-12 w-full md:max-w-[1110px] mx-auto md:min-h-[588px] md:mt-[80px]">
+    <div class="md:w-1/2 mb-8 md:mb-0 pl-12 flex flex-col justify-center h-full">
+      <h2 class="text-3xl font-bold mb-4">BRINGING YOU THE BEST AUDIO GEAR</h2>
+      <p class="text-gray-600">
+        Located at the heart of New York City, Audiophile is the premier store for high end headphones, earphones, speakers, and audio accessories. We have a large showroom and luxury demonstration rooms available for you to browse and experience a wide range of our products. Stop by our store to meet some of the fantastic people who make Audiophile the best place to buy your portable audio equipment.
+      </p>
+    </div>
+    <div class="md:w-1/2 flex justify-center">
+      <img src="images/home/pre-footer-image.jpg" alt="Best Audio Gear" style="height: 500px; width: 500px;" class="rounded-lg w-64 h-64 object-cover"/>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-black text-white px-4 md:px-12 py-12 w-full md:max-w-[1440px] mx-auto md:min-h-[365px] md:mt-[80px]">
+    <div class="flex flex-col md:flex-row md:justify-around items-center md:items-start">
+      <div>
+        <div class="font-bold text-xl tracking-widest mb-4">audiophile</div>
+        <p class="text-gray-400 max-w-xs mb-4">
+          Audiophile is an all in one stop to fulfill your audio needs. We're a small team of music lovers and sound specialists who are devoted to helping you get the most out of personal audio. Come and visit our demo facility - we're open 7 days a week.
+        </p>
+      </div>
+      <ul class="flex space-x-8 uppercase text-sm font-semibold mt-6 md:mt-0">
+        <li><a href="index.html" class="hover:text-orange-500">Home</a></li>
+        <li><a href="headphones.html" class="hover:text-orange-500">Headphones</a></li>
+        <li><a href="speakers.html" class="hover:text-orange-500">Speakers</a></li>
+        <li><a href="earphones.html" class="hover:text-orange-500">Earphones</a></li>
+      </ul>
+    </div>
+    <div class="flex flex-col md:flex-row md:justify-around items-center mt-8 w-full">
+      <p class="text-gray-500 text-xs">&copy; 2021. All Rights Reserved</p>
+      <div class="flex space-x-4 mt-4 md:mt-0">
+        <a href="#"><img src="challenge-files/audio_file/assets/shared/desktop/icon-facebook.svg" alt="Facebook" class="w-6 h-6 inline-block mx-2"/></a>
+        <a href="#"><img src="challenge-files/audio_file/assets/shared/desktop/icon-twitter.svg" alt="Twitter" class="w-6 h-6 inline-block mx-2"/></a>
+        <a href="#"><img src="challenge-files/audio_file/assets/shared/desktop/icon-instagram.svg" alt="Instagram" class="w-6 h-6 inline-block mx-2"/></a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="cart.js"></script>
+</body>
+</html>

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Checkout | Audiophile</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-50 min-h-screen flex flex-col">
+  <!-- NAVBAR -->
+  <nav class="bg-black text-white px-4 md:px-12 py-4 flex items-center justify-between">
+    <div class="font-bold text-xl tracking-widest">audiophile</div>
+    <ul class="flex space-x-8 uppercase text-sm font-semibold">
+      <li><a href="index.html" class="hover:text-orange-500">Home</a></li>
+      <li><a href="headphones.html" class="hover:text-orange-500">Headphones</a></li>
+      <li><a href="speakers.html" class="hover:text-orange-500">Speakers</a></li>
+      <li><a href="earphones.html" class="hover:text-orange-500">Earphones</a></li>
+    </ul>
+    <a id="cart-btn" href="cart.html" class="focus:outline-none relative">
+      <img src="challenge-files/audio_file/assets/shared/desktop/icon-cart.svg" alt="Cart" class="w-7 h-7"/>
+      <span class="cart-badge absolute top-0 right-0 bg-orange-500 text-white text-xs rounded-full px-2 py-0.5" style="display:none;transform:translate(50%,-50%)"></span>
+    </a>
+  </nav>
+
+  <main class="flex-1 flex flex-col items-center py-8 px-4 md:px-0">
+    <h1 class="text-3xl font-bold mb-8">Checkout</h1>
+    <div class="w-full max-w-4xl flex flex-col md:flex-row gap-8">
+      <!-- Checkout Form -->
+      <form id="checkout-form" class="flex-1 bg-white rounded-lg shadow p-6 space-y-4">
+        <h2 class="text-xl font-bold mb-4">Billing Details</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <input name="name" type="text" placeholder="Name*" class="border rounded px-3 py-2" required />
+          <input name="email" type="email" placeholder="Email*" class="border rounded px-3 py-2" required />
+          <input name="phone" type="tel" placeholder="Phone*" class="border rounded px-3 py-2" required />
+        </div>
+        <h2 class="text-xl font-bold mt-6 mb-4">Shipping Info</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <input name="address" type="text" placeholder="Address*" class="border rounded px-3 py-2 md:col-span-2" required />
+          <input name="zip" type="text" placeholder="ZIP Code*" class="border rounded px-3 py-2" required />
+          <input name="city" type="text" placeholder="City*" class="border rounded px-3 py-2" required />
+          <input name="country" type="text" placeholder="Country*" class="border rounded px-3 py-2" required />
+        </div>
+        <h2 class="text-xl font-bold mt-6 mb-4">Payment Details</h2>
+        <div class="flex flex-col gap-2">
+          <label class="flex items-center gap-2">
+            <input type="radio" name="payment" value="e-money" required />
+            <span>E-Money</span>
+          </label>
+          <label class="flex items-center gap-2">
+            <input type="radio" name="payment" value="cash" required />
+            <span>Cash on Delivery</span>
+          </label>
+        </div>
+        <button type="submit" class="w-full bg-black text-white px-6 py-3 rounded hover:bg-gray-800 font-semibold uppercase text-sm mt-6">Continue & Confirm</button>
+      </form>
+      <!-- Cart Summary -->
+      <div class="w-full md:w-96 bg-white rounded-lg shadow p-6 h-fit">
+        <h2 class="text-xl font-bold mb-4">Summary</h2>
+        <div id="summary-items" class="divide-y mb-4"></div>
+        <div class="space-y-2 text-sm">
+          <div class="flex justify-between"><span>Total</span><span id="summary-total" class="font-bold"></span></div>
+          <div class="flex justify-between"><span>Shipping</span><span>$50</span></div>
+          <div class="flex justify-between"><span>VAT (20%)</span><span id="summary-vat"></span></div>
+          <div class="flex justify-between text-lg font-bold"><span>Grand Total</span><span id="summary-grand"></span></div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="bg-black text-white px-4 md:px-12 py-12 w-full md:max-w-[1440px] mx-auto md:min-h-[365px] md:mt-[80px]">
+    <div class="flex flex-col md:flex-row md:justify-around items-center md:items-start">
+      <div>
+        <div class="font-bold text-xl tracking-widest mb-4">audiophile</div>
+        <p class="text-gray-400 max-w-xs mb-4">
+          Audiophile is an all in one stop to fulfill your audio needs. We're a small team of music lovers and sound specialists who are devoted to helping you get the most out of personal audio. Come and visit our demo facility - we're open 7 days a week.
+        </p>
+      </div>
+      <ul class="flex space-x-8 uppercase text-sm font-semibold mt-6 md:mt-0">
+        <li><a href="index.html" class="hover:text-orange-500">Home</a></li>
+        <li><a href="headphones.html" class="hover:text-orange-500">Headphones</a></li>
+        <li><a href="speakers.html" class="hover:text-orange-500">Speakers</a></li>
+        <li><a href="earphones.html" class="hover:text-orange-500">Earphones</a></li>
+      </ul>
+    </div>
+    <div class="flex flex-col md:flex-row md:justify-around items-center mt-8 w-full">
+      <p class="text-gray-500 text-xs">&copy; 2021. All Rights Reserved</p>
+      <div class="flex space-x-4 mt-4 md:mt-0">
+        <a href="#"><img src="challenge-files/audio_file/assets/shared/desktop/icon-facebook.svg" alt="Facebook" class="w-6 h-6 inline-block mx-2"/></a>
+        <a href="#"><img src="challenge-files/audio_file/assets/shared/desktop/icon-twitter.svg" alt="Twitter" class="w-6 h-6 inline-block mx-2"/></a>
+        <a href="#"><img src="challenge-files/audio_file/assets/shared/desktop/icon-instagram.svg" alt="Instagram" class="w-6 h-6 inline-block mx-2"/></a>
+      </div>
+    </div>
+  </footer>
+  <script src="cart.js"></script>
+  <script>
+    function renderSummary() {
+      const cart = getCart();
+      const itemsDiv = document.getElementById('summary-items');
+      if (!cart.length) {
+        itemsDiv.innerHTML = '<p class="text-center text-gray-500">Your cart is empty.</p>';
+        document.getElementById('summary-total').textContent = '$0';
+        document.getElementById('summary-vat').textContent = '$0';
+        document.getElementById('summary-grand').textContent = '$0';
+        return;
+      }
+      let total = 0;
+      let html = '';
+      cart.forEach(item => {
+        const subtotal = item.price * item.qty;
+        total += subtotal;
+        html += `
+          <div class="flex items-center py-3">
+            <img src="${item.image}" alt="${item.name}" class="w-14 h-14 object-contain rounded mr-3 bg-gray-100"/>
+            <div class="flex-1">
+              <div class="font-bold text-sm">${item.name}</div>
+              <div class="text-gray-500 text-xs">$${item.price.toLocaleString()} x ${item.qty}</div>
+            </div>
+            <div class="font-semibold">$${subtotal.toLocaleString()}</div>
+          </div>
+        `;
+      });
+      const shipping = 50;
+      const vat = Math.round(total * 0.2);
+      const grand = total + shipping + vat;
+      document.getElementById('summary-total').textContent = `$${total.toLocaleString()}`;
+      document.getElementById('summary-vat').textContent = `$${vat.toLocaleString()}`;
+      document.getElementById('summary-grand').textContent = `$${grand.toLocaleString()}`;
+      itemsDiv.innerHTML = html;
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+      renderSummary();
+      document.getElementById('checkout-form').onsubmit = function(e) {
+        e.preventDefault();
+        // Validate required fields
+        const form = e.target;
+        if (!form.checkValidity()) {
+          form.reportValidity();
+          return;
+        }
+        // Save order info and redirect
+        const order = {
+          cart: getCart(),
+          total: document.getElementById('summary-total').textContent,
+          vat: document.getElementById('summary-vat').textContent,
+          grand: document.getElementById('summary-grand').textContent,
+          shipping: 50,
+          form: Object.fromEntries(new FormData(form).entries())
+        };
+        localStorage.setItem('order', JSON.stringify(order));
+        window.location.href = 'order-confirmation.html';
+      };
+    });
+  </script>
+</body>
+</html>

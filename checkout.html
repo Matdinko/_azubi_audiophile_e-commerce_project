@@ -6,9 +6,9 @@
   <title>Checkout | Audiophile</title>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
-<body class="bg-gray-50 min-h-screen flex flex-col">
+<body class="bg-gray-50 pt-16 min-h-screen flex flex-col">
   <!-- NAVBAR -->
-  <nav class="bg-black text-white px-4 md:px-12 py-4 flex items-center justify-between w-full md:max-w-[1440px] mx-auto relative">
+  <nav class="fixed top-0 left-0 right-0 z-50 bg-black text-white px-4 md:px-12 py-4 flex items-center justify-between w-full md:max-w-[1440px] mx-auto">
     <div class="font-bold text-3xl tracking-widest">audiophile</div>
     
     <!-- Desktop Navigation -->
@@ -183,6 +183,8 @@
           form: Object.fromEntries(new FormData(form).entries())
         };
         localStorage.setItem('order', JSON.stringify(order));
+        // Clear the cart since the order has been confirmed
+        clearCart();
         window.location.href = 'order-confirmation.html';
       };
     });

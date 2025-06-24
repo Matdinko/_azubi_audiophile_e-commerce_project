@@ -12,6 +12,11 @@
     localStorage.setItem(CART_KEY, JSON.stringify(cart));
   }
 
+  function clearCart() {
+    localStorage.removeItem(CART_KEY);
+    updateCartBadge();
+  }
+
   function getCartCount() {
     return getCart().reduce((sum, item) => sum + item.qty, 0);
   }
@@ -112,6 +117,7 @@
   window.getCart = getCart;
   window.getTotals = getTotals;
   window.renderCart = renderCart;
+  window.clearCart = clearCart;
 
   // Cart button event
   document.addEventListener('DOMContentLoaded', function() {

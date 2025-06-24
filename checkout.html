@@ -8,19 +8,53 @@
 </head>
 <body class="bg-gray-50 min-h-screen flex flex-col">
   <!-- NAVBAR -->
-  <nav class="bg-black text-white px-4 md:px-12 py-4 flex items-center justify-between">
-    <div class="font-bold text-xl tracking-widest">audiophile</div>
-    <ul class="flex space-x-8 uppercase text-sm font-semibold">
+  <nav class="bg-black text-white px-4 md:px-12 py-4 flex items-center justify-between w-full md:max-w-[1440px] mx-auto relative">
+    <div class="font-bold text-3xl tracking-widest">audiophile</div>
+    
+    <!-- Desktop Navigation -->
+    <ul class="hidden md:flex space-x-8 uppercase text-sm font-semibold">
       <li><a href="index.html" class="hover:text-orange-500">Home</a></li>
       <li><a href="headphones.html" class="hover:text-orange-500">Headphones</a></li>
       <li><a href="speakers.html" class="hover:text-orange-500">Speakers</a></li>
       <li><a href="earphones.html" class="hover:text-orange-500">Earphones</a></li>
     </ul>
+    
+    <!-- Mobile Hamburger Button -->
+    <button id="hamburger-btn" class="md:hidden focus:outline-none">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+      </svg>
+    </button>
+    
     <a id="cart-btn" href="cart.html" class="focus:outline-none relative">
       <img src="challenge-files/audio_file/assets/shared/desktop/icon-cart.svg" alt="Cart" class="w-7 h-7"/>
       <span class="cart-badge absolute top-0 right-0 bg-orange-500 text-white text-xs rounded-full px-2 py-0.5" style="display:none;transform:translate(50%,-50%)"></span>
     </a>
   </nav>
+
+  <!-- Mobile Menu Overlay -->
+  <div id="mobile-overlay" class="fixed inset-0 bg-black bg-opacity-50 z-40 hidden md:hidden"></div>
+
+  <!-- Mobile Navigation Menu -->
+  <div id="mobile-menu" class="fixed top-0 left-0 h-full w-80 bg-white z-50 transform -translate-x-full transition-transform duration-300 ease-in-out md:hidden">
+    <div class="p-6">
+      <div class="flex justify-between items-center mb-8">
+        <div class="font-bold text-2xl tracking-widest text-black">audiophile</div>
+        <button id="close-menu" class="text-black focus:outline-none">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+          </svg>
+        </button>
+      </div>
+      <ul class="space-y-6 uppercase text-lg font-semibold text-black">
+        <li><a href="index.html" class="hover:text-orange-500 block">Home</a></li>
+        <li><a href="headphones.html" class="hover:text-orange-500 block">Headphones</a></li>
+        <li><a href="speakers.html" class="hover:text-orange-500 block">Speakers</a></li>
+        <li><a href="earphones.html" class="hover:text-orange-500 block">Earphones</a></li>
+      </ul>
+    </div>
+  </div>
+    
 
   <main class="flex-1 flex flex-col items-center py-8 px-4 md:px-0">
     <h1 class="text-3xl font-bold mb-8">Checkout</h1>
@@ -69,7 +103,7 @@
 
   <footer class="bg-black text-white px-4 md:px-12 py-12 w-full md:max-w-[1440px] mx-auto md:min-h-[365px] md:mt-[80px]">
     <div class="flex flex-col md:flex-row md:justify-around items-center md:items-start">
-      <div>
+      <div class="text-center md:text-left">
         <div class="font-bold text-xl tracking-widest mb-4">audiophile</div>
         <p class="text-gray-400 max-w-xs mb-4">
           Audiophile is an all in one stop to fulfill your audio needs. We're a small team of music lovers and sound specialists who are devoted to helping you get the most out of personal audio. Come and visit our demo facility - we're open 7 days a week.
@@ -92,6 +126,7 @@
     </div>
   </footer>
   <script src="cart.js"></script>
+  <script src="mobile-nav.js"></script>
   <script>
     function renderSummary() {
       const cart = getCart();

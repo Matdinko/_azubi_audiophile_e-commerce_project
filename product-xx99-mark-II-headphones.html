@@ -8,28 +8,62 @@
 </head>
 <body class="bg-gray-50">
   <!-- NAVBAR -->
-  <nav class="bg-black text-white px-4 md:px-12 py-4 flex items-center justify-between">
-    <div class="font-bold text-xl tracking-widest">audiophile</div>
-    <ul class="flex space-x-8 uppercase text-sm font-semibold">
+  <nav class="bg-black text-white px-4 md:px-12 py-4 flex items-center justify-between w-full md:max-w-[1440px] mx-auto relative">
+    <div class="font-bold text-3xl tracking-widest">audiophile</div>
+    
+    <!-- Desktop Navigation -->
+    <ul class="hidden md:flex space-x-8 uppercase text-sm font-semibold">
       <li><a href="index.html" class="hover:text-orange-500">Home</a></li>
       <li><a href="headphones.html" class="hover:text-orange-500">Headphones</a></li>
       <li><a href="speakers.html" class="hover:text-orange-500">Speakers</a></li>
       <li><a href="earphones.html" class="hover:text-orange-500">Earphones</a></li>
     </ul>
-    <a id="cart-btn" href="cart.html" class="focus:outline-none">
+    
+    <!-- Mobile Hamburger Button -->
+    <button id="hamburger-btn" class="md:hidden focus:outline-none">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+      </svg>
+    </button>
+    
+    <a id="cart-btn" href="cart.html" class="focus:outline-none relative">
       <img src="challenge-files/audio_file/assets/shared/desktop/icon-cart.svg" alt="Cart" class="w-7 h-7"/>
+      <span class="cart-badge absolute top-0 right-0 bg-orange-500 text-white text-xs rounded-full px-2 py-0.5" style="display:none;transform:translate(50%,-50%)"></span>
     </a>
   </nav>
+
+  <!-- Mobile Menu Overlay -->
+  <div id="mobile-overlay" class="fixed inset-0 bg-black bg-opacity-50 z-40 hidden md:hidden"></div>
+
+  <!-- Mobile Navigation Menu -->
+  <div id="mobile-menu" class="fixed top-0 left-0 h-full w-80 bg-white z-50 transform -translate-x-full transition-transform duration-300 ease-in-out md:hidden">
+    <div class="p-6">
+      <div class="flex justify-between items-center mb-8">
+        <div class="font-bold text-2xl tracking-widest text-black">audiophile</div>
+        <button id="close-menu" class="text-black focus:outline-none">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+          </svg>
+        </button>
+      </div>
+      <ul class="space-y-6 uppercase text-lg font-semibold text-black">
+        <li><a href="index.html" class="hover:text-orange-500 block">Home</a></li>
+        <li><a href="headphones.html" class="hover:text-orange-500 block">Headphones</a></li>
+        <li><a href="speakers.html" class="hover:text-orange-500 block">Speakers</a></li>
+        <li><a href="earphones.html" class="hover:text-orange-500 block">Earphones</a></li>
+      </ul>
+    </div>
+  </div>
 
   <!-- PRODUCT DETAILS -->
   <section class="flex flex-col md:flex-row items-center my-16 px-4 md:px-12 gap-x-12">
     <img src="images/product-xx99-mark-two-headphones/image-product.jpg" alt="XX99 Mark II Headphones" class="w-full max-w-xs md:max-w-md lg:max-w-lg h-auto object-contain rounded-lg shadow-md mx-auto md:mr-12 mb-6 md:mb-0"/>
-    <div class="mt-8 md:mt-0 max-w-lg">
+    <div class="mt-8 md:mt-0 max-w-lg text-center md:text-left">
       <span class="uppercase text-orange-500 tracking-widest text-sm">New Product</span>
       <h1 class="text-3xl font-bold my-4">XX99 MARK II HEADPHONES</h1>
       <p class="text-gray-600 mb-4">The new XX99 Mark II headphones is the pinnacle of pristine audio. It redefines your premium headphone experience by reproducing the balanced depth and precision of studio-quality sound.</p>
       <div class="text-xl font-bold mb-4">$2,999</div>
-      <div class="flex items-center space-x-4 mb-6">
+      <div class="flex items-center justify-center md:justify-start space-x-4 mb-6">
         <button id="decrease-qty" class="bg-gray-200 px-3 py-1 rounded text-lg">-</button>
         <span id="product-qty" class="text-lg font-semibold">1</span>
         <button id="increase-qty" class="bg-gray-200 px-3 py-1 rounded text-lg">+</button>
@@ -47,17 +81,17 @@
 
   <!-- CATEGORY CARDS -->
  <section class="flex flex-col md:flex-row justify-around items-center space-y-8 md:space-y-0 md:space-x-8 my-16 px-4 md:px-0 w-full md:max-w-[1110px] mx-auto md:min-h-[284px] md:mt-[120px]">
-    <div class="bg-white rounded-lg shadow flex flex-col items-center w-25% md:w-1/4 p-6">
+    <div class="bg-white rounded-lg shadow flex flex-col items-center w-full md:w-1/4 p-6">
       <img src="images/product-xx99-mark-one-headphones/image-category-page-preview.jpg" alt="Headphones" class="w-24 h-24 object-cover mb-4"/>
       <h3 class="font-bold text-lg mb-2">HEADPHONES</h3>
       <a href="headphones.html" class="text-orange-500 font-semibold uppercase text-sm hover:underline">Shop &rarr;</a>
     </div>
-    <div class="bg-white rounded-lg shadow flex flex-col items-center w-25% md:w-1/4 p-6">
+    <div class="bg-white rounded-lg shadow flex flex-col items-center w-full md:w-1/4 p-6">
       <img src="images/product-zx9-speaker/image-category-page-preview.jpg" alt="Speakers" class="w-24 h-24 object-cover mb-4"/>
       <h3 class="font-bold text-lg mb-2">SPEAKERS</h3>
       <a href="speakers.html" class="text-orange-500 font-semibold uppercase text-sm hover:underline">Shop &rarr;</a>
     </div>
-    <div class="bg-white rounded-lg shadow flex flex-col items-center w-25% md:w-1/4 p-6">
+    <div class="bg-white rounded-lg shadow flex flex-col items-center w-full md:w-1/4 p-6">
       <img src="images/product-yx1-earphones/image-category-page-preview.jpg" alt="Earphones" class="w-24 h-24 object-cover mb-4"/>
       <h3 class="font-bold text-lg mb-2">EARPHONES</h3>
       <a href="earphones.html" class="text-orange-500 font-semibold uppercase text-sm hover:underline">Shop &rarr;</a>
@@ -66,7 +100,7 @@
 
   <!-- BEST AUDIO GEAR SECTION -->
   <section style="height: 500px;" class="flex flex-col md:flex-row items-center justify-center my-16 px-4 md:px-0 gap-x-12 w-full md:max-w-[1110px] mx-auto md:min-h-[588px] md:mt-[80px]">
-    <div class="md:w-1/2 mb-8 md:mb-0 pl-12 flex flex-col justify-center h-full">
+    <div class="md:w-1/2 mb-8 md:mb-0 md:pl-12 flex flex-col justify-center h-full text-center md:text-left">
       <h2 class="text-3xl font-bold mb-4">BRINGING YOU THE BEST AUDIO GEAR</h2>
       <p class="text-gray-600">
         Located at the heart of New York City, Audiophile is the premier store for high end headphones, earphones, speakers, and audio accessories. We have a large showroom and luxury demonstration rooms available for you to browse and experience a wide range of our products. Stop by our store to meet some of the fantastic people who make Audiophile the best place to buy your portable audio equipment.
@@ -80,7 +114,7 @@
   <!-- FOOTER -->
   <footer class="bg-black text-white px-4 md:px-12 py-12 w-full md:max-w-[1440px] mx-auto md:min-h-[365px] md:mt-[80px]">
     <div class="flex flex-col md:flex-row md:justify-around items-center md:items-start">
-      <div>
+      <div class="text-center md:text-left">
         <div class="font-bold text-xl tracking-widest mb-4">audiophile</div>
         <p class="text-gray-400 max-w-xs mb-4">
           Audiophile is an all in one stop to fulfill your audio needs. We're a small team of music lovers and sound specialists who are devoted to helping you get the most out of personal audio. Come and visit our demo facility - we're open 7 days a week.
@@ -104,6 +138,7 @@
   </footer>
 
   <script src="cart.js"></script>
+  <script src="mobile-nav.js"></script>
   <script>
     // Quantity selector logic
     let qty = 1;
